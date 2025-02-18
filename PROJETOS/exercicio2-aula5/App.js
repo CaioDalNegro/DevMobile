@@ -23,13 +23,13 @@ const App = () => {  // Função principal do componente.
   };
 
   return (
-    <ScrollView style={styles.container}>  // O ScrollView permite que a tela role quando o conteúdo for maior que a área visível.
-      <View style={styles.header}>  // Container do cabeçalho com logo e título.
+    <ScrollView style={styles.container}>  {/* O ScrollView permite que a tela role quando o conteúdo for maior que a área visível*/}
+      <View style={styles.header}>  {/* Container do cabeçalho com logo e título */}
       <Image 
-        source={{ uri: './assets/img/NativeLogo.png' }} 
+        source={{ uri: logox }} 
         style={styles.image} 
       />
-        <Text style={styles.title}>Exmplo de App React Native</Text>  // Título da página.
+        <Text style={styles.title}>Exmplo de App React Native</Text>  {/*Título da página*/}
       </View>
 
       {/* Componente de input para digitar o nome do novo item*/}
@@ -48,7 +48,7 @@ const App = () => {  // Função principal do componente.
         data={items}  // Passa os itens para o FlatList.
         renderItem={({ item }) => (  // Função para renderizar cada item da lista
           <View style={styles.item}>
-            <Text>{item.name}</Text>  // Exibe o nome do item.
+            <Text>{item.name}</Text>  {/* Exibe o nome do item.*/}
           </View>
         )}
         keyExtractor={(item) => item.id}  // Cada item precisa de uma chave única
