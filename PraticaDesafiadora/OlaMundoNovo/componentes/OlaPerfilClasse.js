@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { Text, View } from 'react-native';
+import React, { Component } from 'react';
 
-export default function(props) {
-  return (
-    <View>
-      <Text>Nome: {props.nome}</Text>
-      <Text>Endereço: {props.endereco}</Text>
-      <Text>Telefone: {props.telefone}</Text>
-    </View>
-  );
+export default class PerfilClasse extends Component {
+  render() {
+    const { nome, endereco, telefone } = this.props;  // Desestruturando props
+
+    return (
+      <View>
+        <h1>Perfil Classe</h1>
+        <Text>Nome: {nome}</Text>
+        <Text>Endereço: {endereco}</Text>
+        <Text>Telefone: {telefone}</Text>
+      </View>
+    );
+  }
 }

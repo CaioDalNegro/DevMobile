@@ -9,11 +9,12 @@ export default function App() {
     <View style={styles.container}>
       <OlaPerfilFuncao/> {/*Retorna o componente OlaPerfilFuncao */}
 
+      {/*Retorna o componente OlaPerfilClasse */}
       <OlaPerfilClasse 
       nome = 'Caio'
       endereco = 'Rua eterno 11x0'
       telefone = '(16)99632-2651'
-      /> {/*Retorna o componente OlaPerfilClasse */}
+      />
       <StatusBar style="auto" />
     </View>
   );
