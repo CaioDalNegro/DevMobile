@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 export default function TelaEdicao({ route, navigation }) {
-  const { peca, atualizarQuantidade } = route.params; // Recebe os dados da peça e a função de atualizar
-  const [quantidade, setQuantidade] = useState(String(peca.quantidade)); // Estado para a nova quantidade
+  const { peca, atualizarQuantidade } = route.params;
+  const [quantidade, setQuantidade] = useState(String(peca.quantidade))
 
-  // Função para salvar as alterações
   const salvarEdicao = () => {
-    const novaQtd = parseInt(quantidade, 10); // Converte para número
+    const novaQtd = parseInt(quantidade, 10); // CONVERTE PARA NUMERO
     if (!isNaN(novaQtd)) {
-      atualizarQuantidade(novaQtd); // Chama a função recebida da TelaEstoque
-      navigation.goBack(); // Volta para a tela anterior
+      atualizarQuantidade(novaQtd); // CHAMA A FUNÇÃO DA TELA ESTOQUE
+      navigation.goBack(); // VOLTA PARA A TELA ANTERIOR
     }
   };
 
@@ -18,7 +17,7 @@ export default function TelaEdicao({ route, navigation }) {
     <View style={styles.container}>
       <Text style={styles.title}>Editar: {peca.nome}</Text>
 
-      {/* Campo para digitar nova quantidade */}
+      {/* CAMPO PARA EDITAR A QUANTIDADE*/}
       <TextInput
         style={styles.input}
         value={quantidade}
@@ -32,7 +31,7 @@ export default function TelaEdicao({ route, navigation }) {
   );
 }
 
-// Estilos da tela
+// ESTILOS DA TELA EDIÇÃO---------------------------------------------------------->
 const styles = StyleSheet.create({
   container: {
     flex: 1,

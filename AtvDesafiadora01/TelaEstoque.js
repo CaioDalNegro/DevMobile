@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Hook para navegar entre telas
+import { useNavigation } from '@react-navigation/native';
 
 export default function TelaEstoque() {
-  const navigation = useNavigation(); // Acessa o sistema de navegação
+  const navigation = useNavigation();
 
-  // Estado que guarda a lista de peças no estoque
   const [estoque, setEstoque] = useState([
     { id: '1', nome: 'Parafuso', quantidade: 100 },
     { id: '2', nome: 'Porca', quantidade: 75 },
     { id: '3', nome: 'Arruela', quantidade: 50 },
   ]);
 
-  // Função chamada ao pressionar "Editar" em uma peça
+  // FUNÇÃO EDITAR---------------------------------------------------->
   const editarQuantidade = (item) => {
     navigation.navigate('TelaEdicao', {
-      peca: item, // Envia a peça selecionada para a TelaEdicao
+      peca: item, // ENVIA A PEÇA SELECIONADA
       atualizarQuantidade: (novaQuantidade) => {
-        // Atualiza a quantidade no estado de estoque
+        // ATUALIZA A QUANTIDADE-------------------->
         const novoEstoque = estoque.map((p) =>
           p.id === item.id ? { ...p, quantidade: novaQuantidade } : p
         );
@@ -26,17 +25,17 @@ export default function TelaEstoque() {
     });
   };
 
-  // Adiciona uma nova peça ao estoque
+  // ADICIONA UMA NOVA PEÇA AO ESTOQUE---------------------------------->
   const adicionarPeca = () => {
     const novaPeca = {
       id: (estoque.length + 1).toString(),
       nome: `Peça ${estoque.length + 1}`,
       quantidade: 0,
     };
-    setEstoque([...estoque, novaPeca]); // Atualiza o array com a nova peça
+    setEstoque([...estoque, novaPeca]); // Atualiza o array
   };
 
-  // Renderiza cada item da lista
+  // CARREGA OS ITENS DA LISTA---------------->
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.itemNome}>{item.nome}</Text>
@@ -51,7 +50,7 @@ export default function TelaEstoque() {
     <View style={styles.container}>
       <Text style={styles.title}>Estoque de Peças</Text>
 
-      {/* Lista as peças com FlatList */}
+      {/*------------LISTA DAS PEÇAS------------*/}
       <FlatList
         data={estoque}
         keyExtractor={(item) => item.id}
@@ -59,7 +58,7 @@ export default function TelaEstoque() {
         contentContainerStyle={styles.lista}
       />
 
-      {/* Botão para adicionar nova peça */}
+      {/* BOTÃO PARA ADICIONAR UMA NOVA PEÇA */}
       <TouchableOpacity style={styles.addButton} onPress={adicionarPeca}>
         <Text style={styles.addButtonText}>Adicionar Peça</Text>
       </TouchableOpacity>
@@ -67,7 +66,7 @@ export default function TelaEstoque() {
   );
 }
 
-// Estilos da tela
+// ESTILOS DA TELA ESTOQUE-------------------------------------------------------------->
 const styles = StyleSheet.create({
   container: {
     flex: 1,
