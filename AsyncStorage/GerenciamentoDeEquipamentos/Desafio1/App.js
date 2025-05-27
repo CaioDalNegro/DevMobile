@@ -51,12 +51,10 @@ export default function App() {
     }
   };
 
-  // Alterar equipamento (é o mesmo que salvar com ID já existente)
   const alterarEquipamento = async () => {
     await salvarEquipamento();
   };
 
-  // Remover equipamento
   const removerEquipamento = async () => {
     if (!id) {
       Alert.alert("Informe o ID para remover.");
@@ -72,7 +70,6 @@ export default function App() {
     }
   };
 
-  // Limpar campos
   const limparCampos = () => {
     setId('');
     setNome('');
