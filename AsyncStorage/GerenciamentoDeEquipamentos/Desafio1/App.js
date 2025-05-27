@@ -7,7 +7,6 @@ export default function App() {
   const [nome, setNome] = useState('');
   const [local, setLocal] = useState('');
 
-  // Salvar equipamento
   const salvarEquipamento = async () => {
     if (!id || !nome || !local) {
       Alert.alert("Preencha todos os campos.");
@@ -29,7 +28,6 @@ export default function App() {
     }
   };
 
-  // Carregar equipamento
   const carregarEquipamento = async () => {
     if (!id) {
       Alert.alert("Informe o ID para buscar.");
